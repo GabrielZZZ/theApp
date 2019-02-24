@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
-import { GenericProvider } from '../../providers/generic/generic';
+
 import { Platform } from 'ionic-angular';
 import { InAppPurchase } from '@ionic-native/in-app-purchase/ngx';
 declare let cordova;
