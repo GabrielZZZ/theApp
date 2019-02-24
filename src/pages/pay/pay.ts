@@ -27,11 +27,13 @@ export class PayPage{
 
   constructor(public navCtrl: NavController, private plt: Platform, private iap: InAppPurchase){
     this.plt.ready().then(() => {
-      this.iap.getProducts([MONTHLYLYL_KEY, CRYSTALS_KET, GAMEMODE_KEY])
-      .then(products => {
-        console.log('Products: ', products);
-        this.products = products;
-      })
+      if (this.plt.is('cordova')){
+        this.iap.getProducts([MONTHLYLYL_KEY, CRYSTALS_KET, GAMEMODE_KEY])
+        .then(products => {
+          console.log('Products: ', products);
+          this.products = products;
+        })
+      }
     })
     .catch(err => {
       console.log('my err: ', err);
@@ -46,8 +48,8 @@ export class PayPage{
 
   restore(){
     //restore the previous purchase
-    this.iap.restorePurchases().then(purchase => {
-      this.previousPurchases = purchase;
+    this.iap.restorePurchases().then(purchases => {
+      this.previousPurchases = purchases;
 
       for(let prev of this.previousPurchases){
         this.enableItems(prev.productID);
