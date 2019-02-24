@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pay Confirmation</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <h3>Pay</h3>
+
+  <p>
+    Payment infirmation of becoming a OLLE Project Member.
+  </p>
+  <p>
+    Follow along on the tutorial section of the Ionic docs!
+  </p>
+  <p>
+    <button ion-button color="primary" >Click me to pay!</button>
+  </p>
+
+
+  <ion-row text-center>
+    <ion-col>Crystals:<br><<b>{{ crystalCount }}</b></ion-col>
+    <ion-col>Special Mode:<b> {{ specialGame }}</b></ion-col>
+    <ion-col>Montly Subscription:<b> {{ monthlySub }}</b></ion-col>
+  </ion-row>
+
+  <ion-card *ngFor="let products of products">
+    <ion-card-header>{{ product.title }}</ion-card-header>
+    <ion-card-content>
+      {{ product.description }}
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button block (click)="buy(product.productID)">
+          Buy now - {{ product.price }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <button ion-button full ion-left (click)="restore()" color="secondory">
+    <ion-icon name="refresh"></ion-icon>
+  </button>
+
+  <ion-card *ngFor="let prev of previousPurchases">
+    <ion-card-header>Purchased {{ prev.date | date:'short' }}</ion-card-header>
+    <ion-card-content>
+      {{ prev.productID }}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
