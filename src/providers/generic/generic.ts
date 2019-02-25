@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 //let apiUrl = "http://www.losaf.cn/theAppDB/api/";
-let apiUrl = "http://localhost/theAppDB/api/";
+//let apiUrl = "http://localhost/theAppDB/api/";
+let apiUrl = "http://132.232.88.47:80/theAppDB/api/";//tencent cloud
+
 //let apiUrl = "http://10.0.2.2:80/theAppDB/api/";
 
 
